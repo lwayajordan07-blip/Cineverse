@@ -1,0 +1,32 @@
+<%- include("../partials/header", { title }) %>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="container hero-content">
+    <span class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEXT MOVIE NIGHT STARTS HERE</span>
+    <h1>Stories worth<br><span>staying in for.</span></h1>
+    <p>Find your next favorite film. Explore popular picks, uncover hidden gems, and make movie night count.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="/movies">Explore movies <span aria-hidden="true">→</span></a>
+      <a class="button button-secondary" href="#featured">See featured</a>
+    </div>
+    <div class="hero-note"><span class="sparkle">✦</span> A universe of stories, all in one place.</div>
+  </div>
+  <div class="hero-decoration" aria-hidden="true"><span>FILM</span><span>·</span><span>FEEL</span><span>·</span><span>REPEAT</span></div>
+</section>
+
+<section class="section container" id="featured">
+  <div class="section-heading">
+    <div><span class="eyebrow">HANDPICKED FOR YOU</span><h2>Featured movies</h2></div>
+    <a class="text-link" href="/movies">View all movies <span aria-hidden="true">→</span></a>
+  </div>
+  <% if (movies.length) { %>
+    <div class="movie-grid">
+      <% movies.forEach((movie) => { %>
+        <%- include("../partials/movie-card", { movie }) %>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <div class="empty-state"><h3>No movies yet</h3><p>Run the database setup script to add the sample movie collection.</p></div>
+  <% } %>
+</section>
+<%- include("../partials/footer") %>

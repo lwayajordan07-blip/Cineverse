@@ -1,0 +1,18 @@
+<%- include("../partials/header", { title }) %>
+<section class="detail-backdrop" style="--backdrop-image: url('<%= movie.backdrop_url || movie.poster_url %>')">
+  <div class="detail-shade"></div>
+  <div class="container detail-layout">
+    <img class="detail-poster" src="<%= movie.poster_url %>" alt="Poster for <%= movie.title %>"
+         onerror="this.onerror=null;this.src='https://placehold.co/400x600/171b2b/f4f5fb?text=No+Poster';">
+    <div class="detail-copy">
+      <a class="back-link" href="/movies">← Back to movies</a>
+      <span class="eyebrow"><%= movie.genre %></span>
+      <h1><%= movie.title %></h1>
+      <div class="detail-meta"><span><%= movie.release_year %></span><span>★ <%= Number(movie.rating).toFixed(1) %> / 10</span></div>
+      <h2>Overview</h2>
+      <p class="overview"><%= movie.overview %></p>
+      <button class="button button-primary" type="button" disabled title="Watchlist will be added in a later project stage">Watchlist coming soon</button>
+    </div>
+  </div>
+</section>
+<%- include("../partials/footer") %>
